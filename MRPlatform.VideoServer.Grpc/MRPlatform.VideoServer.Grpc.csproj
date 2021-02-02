@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Grpc.AspNetCore" Version="2.27.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\MRPlatform.VideoServer.Grpc.Proto\MRPlatform.VideoServer.Grpc.Proto.csproj" />
+    <ProjectReference Include="..\MRPlatform.VideoServer\MRPlatform.VideoServer.csproj" />
+  </ItemGroup>
+
+</Project>

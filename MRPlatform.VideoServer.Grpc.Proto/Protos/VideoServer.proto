@@ -1,0 +1,46 @@
+syntax = "proto3";
+
+option csharp_namespace = "MRPlatform.VideoServer.Grpc";
+
+package VideoServer;
+
+// The greeting service definition.
+service VideoServer {
+
+  rpc UploadFileStream(stream ChunkFile) returns (UploadFileResponse) {};
+
+  rpc GetVideo(GetVideoRequest) returns (stream ChunkFile) {};
+
+  rpc GetThumbnail(GetThumbnailRequest) returns (stream ChunkFile) {};
+
+  rpc Remove(RemoveRequest) returns (Empty) {};
+}
+
+message ChunkFile {
+	string FileName = 1;
+	bytes Data = 2;
+}
+
+message UploadFileResponse {
+	string FileId = 1;
+}
+
+message GetVideoRequest {
+	string FileId = 1;
+	VideoFormat Format = 2;
+
+	enum  VideoFormat {
+		Mpeg4 = 0;
+	}
+}
+
+message GetThumbnailRequest {
+	string FileId = 1;
+}
+
+message RemoveRequest {
+	string FileId = 1;
+}
+
+message Empty {
+}
